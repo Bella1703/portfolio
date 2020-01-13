@@ -1,0 +1,50 @@
+//Less mixins
+
+
+//ШРИФТЫ
+.pattaya (@_font-weight: 400, @_font-size: 1.6rem, @_color: #333333, @_margin-bottom: 0.5em, @_text-transform: none) {
+    font-family: 'Pattaya', sans-serif;
+    font-weight: @_font-weight;
+    font-size: @_font-size;
+    color: @_color;
+    margin-bottom: @_margin-bottom;
+    text-transform: @_text-transform;
+}
+
+.montserrat (@_font-weight: 400, @_font-size: 0.93rem, @_color: #333333, @_margin-bottom: 0.5em, @_text-transform: none) {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: @_font-weight;
+    font-size: @_font-size;
+    color: @_color;
+    margin-bottom: @_margin-bottom;
+    text-transform: @_text-transform;
+}
+
+.roboto (@_font-weight: 400, @_font-size: 1rem, @_color: #999999, @_margin-bottom: 0, @_text-transform: none) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: @_font-weight;
+    font-size: @_font-size;
+    color: @_color;
+    margin-bottom: @_margin-bottom;
+    text-transform: @_text-transform;
+    line-height: 1.6em;
+}
+
+//FLEX
+.flex-row (@_justify-content: center, @_align-items: center) {
+    display: flex;
+    flex-direction: row;
+    align-items: @_align-items;
+    justify-content: @_justify-content;
+}
+.flex-col (@_justify-content: center, @_align-items: center) {
+    display: flex;
+    flex-direction: column;
+    align-items: @_align-items;
+    justify-content: @_justify-content;
+}
+
+
+
+
+
