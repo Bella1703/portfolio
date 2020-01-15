@@ -57,8 +57,8 @@ body {
 }
 .block-light {
     .flex-col();
-    width: calc(100% - 260px);
-    padding: 90px 130px;
+    width: 80%;
+    padding: 90px 10%;
 
     background-color: @light-background-color;
 
@@ -69,8 +69,8 @@ body {
 }
 .block-dark {
     .flex-col();
-    width: calc(100% - 260px);
-    padding: 90px 130px;
+    width: 80%;
+    padding: 90px 10%;
 
     background-color: @dark-background-color;
 
@@ -80,7 +80,7 @@ body {
     }
 }
 .separator {
-    width: 250px;
+    width: 200px;
     height: 1px;
     margin-bottom: 20px;
 
@@ -90,10 +90,11 @@ body {
 //year-list
 .year-list {
     .flex-row();
+    width: 100%;
 
     text-align: left;
 
-    @media(max-width: @mobile-screen) {
+    @media(max-width: 796px) {
         .flex-col();
     }
 
@@ -101,7 +102,7 @@ body {
         .flex-col(flex-start, flex-start);
         width: calc(50% - 20px);
 
-        @media(max-width: @mobile-screen) {
+        @media(max-width: 796px) {
             .flex-col(flex-start, center);
             width: 100%;
 
@@ -117,5 +118,6 @@ body {
 
         font-weight: 700;
         color: @main-black-color;
+        white-space: nowrap;
     }
 }
