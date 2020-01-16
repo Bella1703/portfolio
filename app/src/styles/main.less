@@ -122,7 +122,9 @@ body {
         white-space: nowrap;
     }
 }
-
+.year-list-1 {
+    margin-bottom: 40px;
+}
 
 //portfolio-list
 .portfolio-list {
@@ -207,6 +209,7 @@ body {
 
     &__main-content {
         .flex-col(flex-start, flex-start);
+        width: 100%;
     }
 }
 
@@ -238,31 +241,82 @@ body {
 //contacts
 .contacts {
     &__main-content {
-        .flex-row(flex-start, flex-start);
+        .flex-row(space-between, flex-start);
         width: 100%;
+
+        @media(max-width: @breakpoint-1) {
+            .flex-col(flex-start, flex-start);
+        }
+    }
+}
+.contacts-text {
+    width: calc((100% - 340px) / 2);
+
+    @media(max-width: @breakpoint-1) {
+        width: 100%;
+        margin-bottom: 20px;
+
+        text-align: center;
     }
 }
 .contacts-list {
     .flex-col(flex-start, flex-start);
-    width: 50%;
+    width: 300px;
+
+    @media(max-width: @breakpoint-1) {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
     &__item {
         text-transform: uppercase;
         margin-bottom: 10px;
     }
-    & span {
+    & span,
+    & a {
         font-weight: 700;
         color: @main-blue-color;
         text-transform: none;
     }
+    & a:hover {
+        color: @main-black-color;
+    }
 }
 
 .buttons-block {
-    .flex-col(space-between, center);
+    .flex-col(space-between, flex-end);
+    width: calc((100% - 340px) / 2);
     height: 100%;
+
+    @media(max-width: @breakpoint-1) {
+        .flex-row(space-between, flex-start);
+        width: 100%;
+
+        margin-bottom: 0;
+    }
 }
 .button {
-    width: 261px;
-    height: 62px;
+    width: 100%;
+    height: 60px;
+
+
+    font-weight: 700;
+    color: @white-color;
+    text-transform: uppercase;
+
     background-color: @main-blue-color;
+
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+    @media(max-width: @breakpoint-1) {
+        width: calc((100% - 20px) / 2);
+    }
+}
+.button-1 {
+    margin-bottom: 20px;
+    @media(max-width: @breakpoint-1) {
+        margin-bottom: 0;
+    }
 }
