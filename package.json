@@ -11,7 +11,8 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
