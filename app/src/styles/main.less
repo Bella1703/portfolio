@@ -1,7 +1,6 @@
 @import "_mixins.less";
 @import "_vars.less";
 @import "normalize.css";
-@import "~slick-carousel/slick/slick.css";
 
 
 //СБРОС
@@ -129,6 +128,7 @@ body {
 .portfolio-list {
     .flex-row();
     width: 100%;
+    height: auto;
 
     text-align: center;
 
@@ -182,6 +182,7 @@ body {
 
     &__title-block {
         width: calc(100% - 20px);
+        height: 100%;
         padding: 10px;
 
         background-color: @dark-background-color;
@@ -214,20 +215,14 @@ body {
     padding: 0;
 
     list-style-type: square;
-
-    & a {
-        color: @main-black-color;
-    }
-    & a:hover {
-        color: @main-blue-color;
-    }
 }
 
 .logo-list {
     .flex-row(space-between, center);
+    width: 100%;
 
     &__item {
-        margin-right: 20px;
+        margin-right: 10px;
     }
 
     &__img-size-1 {
@@ -236,4 +231,38 @@ body {
     &__img-size-2 {
         height: 50px;
     }
+}
+
+
+
+//contacts
+.contacts {
+    &__main-content {
+        .flex-row(flex-start, flex-start);
+        width: 100%;
+    }
+}
+.contacts-list {
+    .flex-col(flex-start, flex-start);
+    width: 50%;
+
+    &__item {
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    & span {
+        font-weight: 700;
+        color: @main-blue-color;
+        text-transform: none;
+    }
+}
+
+.buttons-block {
+    .flex-col(space-between, center);
+    height: 100%;
+}
+.button {
+    width: 261px;
+    height: 62px;
+    background-color: @main-blue-color;
 }

@@ -1,47 +1,57 @@
 
 //
-let mh = 0;
-$(".a").each(function b() {
-    let h_a = parseInt($(this).height());
-    if(h_a > mh) {
-        mh = h_a;
-    };
-});
-$(".a").height(mh);
+// let mh = 0;
+// let b = function() {
+//     let h_a = parseInt($(this).height());
+//     if(h_a > mh) {
+//         mh = h_a;
+//     };
+// }
+//
+// $(".a").each(b);
+// $(".a").height(mh);
+// let time;
+// window.onresize = function(e){
+//     if (time)
+//     clearTimeout(time);
+//     time = setTimeout(function(){
+//         mh = 0;
+//         $(window).resize(b);
+//         $(".a").each(b);
+//         $(".a").height(mh);
+//     },1);
+// };
+//
+//
+// $(window).load(b);
+// $(window).resize(b);
+//
+// $(window).on('load resize', b);
 
-window.onresize = function(e){
-    if (time)
-    clearTimeout(time);
-    time = setTimeout(function(){
-        resize(e);
-    },1);
-}
+let blocks = document.body.querySelectorAll(".portfolio-list-item__title-block");
 
+// window.onresize = function () {
+//     let maxHeight = 0;
+//     let height;
+//     for (let block of blocks) {
+//         let computedStyle = getComputedStyle(block);
+//         console.log(computedStyle.height);
+//         height = parseInt(computedStyle.height);
+//         if (height > maxHeight) {
+//             maxHeight = height;
+//         }
+//     }
+//    console.log(maxHeight);
+//     for (let block of blocks) {
+//         block.style.height = maxHeight + 'px';
+//     }
+// };
 
-$(window).load(b);
-$(window).resize(b);
-$(window).on('load resize', b);
-
-
-
-//СЛАЙДЕР БЛОКА НАВЫКИ
-$('.logo-list').slick({
-    dots: false,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    prevArrow: false,
-    nextArrow: false,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 7000,
-    draggable: true,
-    adaptiveHeight: true,
-});
-
-
-
-
+// window.onresize = function () {
+//     for (let block of blocks) {
+//         block.style.height = "50vh";
+//     }
+// }
 
 
 
@@ -62,13 +72,13 @@ let navBurgerIcon = document.body.querySelector(".nav-burger-icon");
 let navBurger = document.body.querySelector(".nav-burger");
 let navListSmall = document.body.querySelector(".nav-list-small");
 
-function Nav() {
-    if (navListSmall.classList.contains("display-none")) {
-        navListSmall.classList.remove("display-none");
-    } else {
-        navListSmall.classList.add("display-none");
-    }
-}
-navBurgerIcon.addEventListener("click", Nav);
+// function Nav() {
+//     if (navListSmall.classList.contains("display-none")) {
+//         navListSmall.classList.remove("display-none");
+//     } else {
+//         navListSmall.classList.add("display-none");
+//     }
+// }
+// navBurgerIcon.addEventListener("click", Nav);
 
 
