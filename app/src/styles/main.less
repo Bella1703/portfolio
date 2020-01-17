@@ -30,7 +30,7 @@ p {
 //ОБЩИЕ
 body {
     width: 100%;
-    min-width: calc(@mobile-screen - 20px);
+    min-width: calc(@breakpoint-1 - 120px);
     max-width: 1400px;
     margin: auto;
 
@@ -249,34 +249,28 @@ body {
         }
     }
 }
-.contacts-text {
-    width: calc((100% - 340px) / 2);
 
-    @media(max-width: @breakpoint-1) {
-        width: 100%;
-        margin-bottom: 20px;
-
-        text-align: center;
-    }
-}
 .contacts-list {
     .flex-col(flex-start, flex-start);
-    width: 300px;
+    width: 50%;
+    min-width: 400px;
+    margin-right: 40px;
 
     @media(max-width: @breakpoint-1) {
+        align-items: center;
         width: 100%;
         margin-bottom: 20px;
     }
 
     &__item {
         text-transform: uppercase;
-        margin-bottom: 10px;
     }
+    &__h3 {
+         color: @main-black-color;
+     }
     & span,
     & a {
-        font-weight: 700;
         color: @main-blue-color;
-        text-transform: none;
     }
     & a:hover {
         color: @main-black-color;
@@ -285,14 +279,12 @@ body {
 
 .buttons-block {
     .flex-col(space-between, flex-end);
-    width: calc((100% - 340px) / 2);
+    width: 50%;
     height: 100%;
 
     @media(max-width: @breakpoint-1) {
         .flex-row(space-between, flex-start);
         width: 100%;
-
-        margin-bottom: 0;
     }
 }
 .button {
@@ -316,6 +308,7 @@ body {
 }
 .button-1 {
     margin-bottom: 20px;
+
     @media(max-width: @breakpoint-1) {
         margin-bottom: 0;
     }
