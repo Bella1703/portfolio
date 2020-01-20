@@ -11,26 +11,77 @@
 </head>
 <body class="body">
 
-<div class="skills block-dark">
+<header class="header">
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-list__item"><a href="#about-me">Обо мне</a></li>
+            <li class="nav-list__item"><a href="#skills">Навыки</a></li>
+            <li class="nav-list__item"><a href="#portfolio">Портфолио</a></li>
+            <li class="nav-list__item"><a href="#education">Образование</a></li>
+            <li class="nav-list__item"><a href="#experience">Опыт работы</a></li>
+            <li class="nav-list__item"><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="about-me block-light" id="about-me">
+
+    <img src="images/avatar.jpg" alt="" class="avatar">
+
+    <div class="description-me">
+        <h1 class="h1">Белла Виноградова</h1>
+        <div class="separator"></div>
+        <h3 class="h3 main__h3">HTML-верстальщик / Junior frontend-разработчик</h3>
+
+        <div class="text">
+            Приветствую Вас на моем сайте-портфолио! Я начинающий frontend-разработчик.<br>
+            Я решила стать верстальщиком, потому что эта профессия требует того, что я люблю больше всего -
+            терпения и аккуратности, внимательности и перфекционизма, любви рутины и получения удовлетворения
+            от создания качественного продукта.<br>
+            А по жизни я интроверт, больше всего ценю честность, обожаю психологию, увлекаюсь кикером и рукоделием, в
+            настоящее время основным приоритетом является профессиональное развитие.
+        </div>
+    </div>
+
+</div>
+
+<div class="skills block-dark" id="skills">
     <h2 class="h2">Навыки</h2>
-    <p class="text skills__text">
-        Изучаю верстку самостоятельно, руководствуясь советами знакомых уже опытных программистов.
+    <p class="text main__text">
+        В сфере IT я относительно недавно, изучаю верстку самостоятельно. План обучения основывается на советах знакомых
+        уже опытных программистов. На данный момент моим главным приоритетом является обучение и отлаживание
+        навыков в процессе работы.
     </p>
 
     <div class="skills__main-content">
 
-        <h3 class="h3 skills__h3">Мои знания и навыки на настоящий момент:</h3>
+        <h3 class="h3 skills__h3">Мои профессиональные знания и навыки на настоящий момент:</h3>
         <div class="separator"></div>
         <ul class="skills-list">
             <li>Уверенно владею HTML5 и CSS3.</li>
             <li>Использую в работе препроцессор Less.</li>
-            <li>Верстаю в среде разработки WebStorm, работаю с макетом в Avocode, владею основами Adobe Photoshop.
-            </li>
             <li>Владею основами JavaScript, нацелена на его дальнейшее более глубокое изучение.</li>
-            <li>Знакома с Bootstrap, jQuery, Webpack, Git, npm.</li>
+            <li>Верстаю в среде разработки WebStorm, работаю с макетом в Avocode.</li>
+            <li>Владею основами Adobe Photoshop.</li>
             <li>Верстаю адаптивно, кроссбраузерно.</li>
             <li>Использую методологию БЭМ.</li>
+            <li>Знакома с Bootstrap, jQuery, Webpack, Git, npm.</li>
         </ul>
+
+
+        <h3 class="h3 skills__h3">Мои сильные личностные стороны:</h3>
+        <div class="separator"></div>
+        <ul class="skills-list">
+            <li>Честность, добросоветсность.</li>
+            <li>Педантичность, аккуратность, внимательность, скрупулезность.</li>
+            <li>Ответственность, дисциплинированность.</li>
+            <li>Пунктуальность.</li>
+            <li>Грамотность, любовь к русскому языку.</li>
+            <li>Здоровый перфекционизм.</li>
+            <li>Способность качественно выполнять и рутинную работу.</li>
+            <li>Вдумчивость, любовь к понимаю того, как все работает.</li>
+        </ul>
+
 
     </div>
 
@@ -45,8 +96,14 @@
 
 </div>
 
-<div class="portfolio block-light">
+<div class="portfolio block-light" id="portfolio">
     <h2 class="h2">Портфолио</h2>
+
+    <p class="text main__text">
+        Представляю Вашему вниманию мое портфолио. Все работы сделаны с нуля, весь фронтенд реализован полностью
+        самостоятельно.
+    </p>
+
     <ul class="portfolio-list">
         <li class="portfolio-list__item portfolio-list-item">
             <a href="#">
@@ -105,8 +162,15 @@
     </ul>
 </div>
 
-<div class="about-me block-dark">
-    <h2 class="h2">Обо мне</h2>
+<div class="education block-dark" id="education">
+    <h2 class="h2">Образование</h2>
+
+    <p class="text main__text">
+        Мое образование не связано со сферой IT, однако кроме базовых знаний и навыков любого высшего образования, я за
+        годы усердной учебы в университете приобрела навык учиться, находить решение сложных задач, соблюдать дедлайны,
+        достигать поставленных целей.
+    </p>
+
     <ul class="year-list year-list-1">
         <li class="year-list__item">
             <h3 class="h3 year-list__year">2012 - 2016</h3>
@@ -131,6 +195,18 @@
             </div>
         </li>
     </ul>
+</div>
+
+<div class="experience block-light" id="experience">
+    <h2 class="h2">Опыт работы</h2>
+
+    <p class="text main__text">
+        Моя предыдущая работа также была не в сфере IT, но на этих местах работы я получила опыт, который, я думаю, мне
+        пригодится
+        на любой будущей работе - я узнала каким образом может быть построена хорошая организованность
+        в компании, научилась работать в коллективе, свободно общаться с Заказчиками, получила бесценный опыт
+        взаимодействия с совершенно разными людьми.
+    </p>
 
     <ul class="year-list">
         <li class="year-list__item">
@@ -160,19 +236,26 @@
     </ul>
 </div>
 
-<div class="contacts block-light">
+<footer class="contacts block-dark" id="contacts">
     <h2 class="h2">Контакты</h2>
+
+    <p class="text main__text">
+        Если вы ищите специалиста по верстке сайтов, front-end разработчика в
+        команду или для работы над проектом — я к вашим услугам!
+    </p>
+
     <div class="contacts__main-content">
 
         <ul class="contacts-list">
             <li class="contacts-list__item">
-                <h3 class="h3 contacts-list__h3">Телефон: <span>+7 981 160-69-70</span> </h3>
+                <h3 class="h3 contacts-list__h3">Телефон: <span>+7 981 160-69-70</span></h3>
             </li>
             <li class="contacts-list__item">
-                <h3 class="h3 contacts-list__h3">Email: <span>bella.vinogradova@gmail.com</span> </h3>
+                <h3 class="h3 contacts-list__h3">Email: <span>bella.vinogradova@gmail.com</span></h3>
             </li>
             <li class="contacts-list__item">
-                <h3 class="h3 contacts-list__h3">GitHub: <a href="https://github.com/Bella1703" target="_blank">Bella1703</a> </h3>
+                <h3 class="h3 contacts-list__h3">GitHub: <a href="https://github.com/Bella1703" target="_blank">Bella1703</a>
+                </h3>
             </li>
         </ul>
 
@@ -183,7 +266,7 @@
     </div>
 
 
-</div>
+</footer>
 
 <script src="/assets/bundle.js"></script>
 </body>

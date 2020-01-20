@@ -62,7 +62,7 @@ $(document).ready(function () {
     $("nav").on("click", "a", function (event) {
         event.preventDefault();
         let id = $(this).attr('href'),
-            top = $(id).offset().top;
+            top = $(id).offset().top - 69;
         $('body,html').animate({scrollTop: top}, 1500);
     });
 });

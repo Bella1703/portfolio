@@ -36,12 +36,13 @@ body {
 
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     font-family: 'Philosopher', sans-serif;
     color: @main-black-color;
     text-align: left;
 }
+.h1,
 .h2 {
     margin: 0 0 40px 0;
 
@@ -49,6 +50,9 @@ body {
     font-size: 48px;
     color: @main-blue-color;
     text-transform: uppercase;
+}
+.h1 {
+    margin-bottom: 0;
 }
 .h3 {
     margin: 0 0 25px 0;
@@ -84,10 +88,14 @@ body {
 }
 .separator {
     width: 200px;
-    height: 1px;
+    height: 2px;
     margin-bottom: 10px;
 
     background-color: @main-blue-color;
+}
+.main__text {
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 //year-list
@@ -198,10 +206,6 @@ body {
 
 //skills
 .skills {
-    &__text {
-        margin-bottom: 40px;
-    }
-
     &__h3 {
         margin: 0;
         color: @main-black-color;
@@ -214,10 +218,14 @@ body {
 }
 
 .skills-list {
+    position: relative;
+    left: 28px;
+
     margin-bottom: 40px;
     padding: 0;
 
-    list-style-type: square;
+    //list-style-type: square;
+    list-style-image: url("../../images/305245-394f1e.svg");
 }
 
 .logo-list {
@@ -265,15 +273,12 @@ body {
     &__item {
         text-transform: uppercase;
     }
-    &__h3 {
-         color: @main-black-color;
-     }
     & span,
     & a {
-        color: @main-blue-color;
+        color: @main-black-color;
     }
     & a:hover {
-        color: @main-black-color;
+        color: @main-blue-color;
     }
 }
 
@@ -311,5 +316,68 @@ body {
 
     @media(max-width: @breakpoint-1) {
         margin-bottom: 0;
+    }
+}
+
+
+//main
+.about-me {
+    .flex-row(flex-start, flex-start);
+    margin-top: 70px;
+
+    &__h3 {
+        color: @main-black-color;
+    }
+}
+.avatar {
+    float: left;
+    margin-right: 40px;
+}
+.description-me {
+    width: 100%;
+
+}
+
+
+//header
+.header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+
+    .flex-row(flex-end, center);
+    width: 100%;
+    height: 70px;
+    min-width: calc(@breakpoint-1 - 120px);
+    max-width:1400px;
+    margin: auto;
+
+    background-color: @dark-background-color;
+
+    @media(max-width: @mobile-screen) {
+        width: calc(100% - 80px);
+        padding: 50px 40px;
+    }
+}
+
+.nav {
+    width: 80%;
+    padding: 0 10%;
+}
+
+.nav-list {
+    .flex-row(flex-end, center);
+    width: 100%;
+
+    text-transform: uppercase;
+    & a {
+        color: @main-black-color;
+    }
+    & a:hover {
+        color: @main-blue-color;
+    }
+
+    &__item:not(:last-child) {
+        margin-right: 20px;
     }
 }
