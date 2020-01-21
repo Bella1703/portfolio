@@ -36,7 +36,8 @@
         <div class="text">
             Приветствую Вас на моем сайте-портфолио! Я начинающий frontend-разработчик.<br>
             Я решила стать верстальщиком, потому что эта профессия требует того, что я люблю больше всего -
-            терпения и аккуратности, внимательности и перфекционизма, любви рутины и получения удовлетворения
+            терпения и аккуратности, внимательности и перфекционизма, отсутствия боязни рутины и получения
+            удовлетворения
             от создания качественного продукта.<br>
             А по жизни я интроверт, больше всего ценю честность, обожаю психологию, увлекаюсь кикером и рукоделием, в
             настоящее время основным приоритетом является профессиональное развитие.
@@ -260,13 +261,54 @@
         </ul>
 
         <div class="buttons-block">
-            <button class="button button-1">Отправить сообщение</button>
-            <button class="button">Скачать резюме</button>
+            <button class="button button-send-message">Отправить сообщение</button>
+            <button class="button button-download-resume">Скачать резюме</button>
         </div>
     </div>
 
 
 </footer>
+
+<div class="modal-window message-form display-none">
+    <div class="modal-window__background message-form__background"></div>
+    <div class="modal-window__content">
+        <form class="form" novalidate>
+
+            <input type="text" placeholder="Ваше имя" name="name"
+                   class="input input-name" id="name">
+            <span class="error-name error-text" aria-live="polite"></span>
+
+            <input type="email" placeholder="Ваш Email" name="email"
+                   class="input input-email" id="email">
+            <span class="error-email error-text" aria-live="polite"></span>
+
+            <textarea name="message"
+                      class="input textarea" id="textarea" placeholder="Ваше сообщение"></textarea>
+            <span class="error-textarea error-text" aria-live="polite"></span>
+
+            <input type="button" value="Отправить сообщение" class="button submit">
+
+        </form>
+    </div>
+    <div class="modal-window__x-icon message-form__x-icon">×</div>
+</div>
+
+
+<div class="modal-window modal-window-answer modal-window-ok display-none">
+    <div class="modal-window__background modal-window-ok__background"></div>
+    <div class="modal-window__content modal-window-answer__content">
+        <h3>Ваше сообщение отправлено!</h3>
+    </div>
+    <div class="modal-window__x-icon modal-window-answer__x-icon modal-window-ok__x-icon">×</div>
+</div>
+
+<div class="modal-window modal-window-answer modal-window-error display-none">
+    <div class="modal-window__background modal-window-error__background"></div>
+    <div class="modal-window__content modal-window-answer__content">
+        <h3>К сожалению произошла ошибка, Ваше сообщение не отправлено! Попробуйте повторить попытку позже!</h3>
+    </div>
+    <div class="modal-window__x-icon modal-window-answer__x-icon modal-window-error__x-icon">×</div>
+</div>
 
 <script src="/assets/bundle.js"></script>
 </body>

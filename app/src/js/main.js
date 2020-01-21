@@ -1,62 +1,4 @@
 
-//
-// let mh = 0;
-// let b = function() {
-//     let h_a = parseInt($(this).height());
-//     if(h_a > mh) {
-//         mh = h_a;
-//     };
-// }
-//
-// $(".a").each(b);
-// $(".a").height(mh);
-// let time;
-// window.onresize = function(e){
-//     if (time)
-//     clearTimeout(time);
-//     time = setTimeout(function(){
-//         mh = 0;
-//         $(window).resize(b);
-//         $(".a").each(b);
-//         $(".a").height(mh);
-//     },1);
-// };
-//
-//
-// $(window).load(b);
-// $(window).resize(b);
-//
-// $(window).on('load resize', b);
-
-let blocks = document.body.querySelectorAll(".portfolio-list-item__title-block");
-
-// window.onresize = function () {
-//     let maxHeight = 0;
-//     let height;
-//     for (let block of blocks) {
-//         let computedStyle = getComputedStyle(block);
-//         console.log(computedStyle.height);
-//         height = parseInt(computedStyle.height);
-//         if (height > maxHeight) {
-//             maxHeight = height;
-//         }
-//     }
-//    console.log(maxHeight);
-//     for (let block of blocks) {
-//         block.style.height = maxHeight + 'px';
-//     }
-// };
-
-// window.onresize = function () {
-//     for (let block of blocks) {
-//         block.style.height = "50vh";
-//     }
-// }
-
-
-
-
-
 //ПЛАВНЫЕ ЯКОРНЫЕ ССЫЛКИ
 $(document).ready(function () {
     $("nav").on("click", "a", function (event) {
@@ -68,9 +10,9 @@ $(document).ready(function () {
 });
 
 //ВЫПАДАЮЩЕЕ МЕНЮ
-let navBurgerIcon = document.body.querySelector(".nav-burger-icon");
-let navBurger = document.body.querySelector(".nav-burger");
-let navListSmall = document.body.querySelector(".nav-list-small");
+// let navBurgerIcon = document.body.querySelector(".nav-burger-icon");
+// let navBurger = document.body.querySelector(".nav-burger");
+// let navListSmall = document.body.querySelector(".nav-list-small");
 
 // function Nav() {
 //     if (navListSmall.classList.contains("display-none")) {
@@ -82,3 +24,101 @@ let navListSmall = document.body.querySelector(".nav-list-small");
 // navBurgerIcon.addEventListener("click", Nav);
 
 
+//показать/скрыть message-form
+let messageForm = document.body.querySelector(".message-form");
+let submitSendMessage = document.body.querySelector(".button-send-message");
+let xIconMessageForm = document.body.querySelector(".message-form__x-icon");
+let xIconModalWindowOk = document.body.querySelector(".modal-window-ok__x-icon");
+let xIconModalWindowError = document.body.querySelector(".modal-window-error__x-icon");
+let messageFormBackground = document.body.querySelector(".message-form__background");
+let modalWindowOkBackground = document.body.querySelector(".modal-window-ok__background");
+let modalWindowErrorBackground = document.body.querySelector(".modal-window-error__background");
+
+submitSendMessage.addEventListener("click", showMessageForm);
+xIconMessageForm.addEventListener("click", hideMessageForm);
+xIconModalWindowOk.addEventListener("click", hideModalWindowOk);
+xIconModalWindowError.addEventListener("click", hideModalWindowError);
+messageFormBackground.addEventListener("click", hideMessageForm);
+modalWindowOkBackground.addEventListener("click", hideModalWindowOk);
+modalWindowErrorBackground.addEventListener("click", hideModalWindowError);
+
+function showMessageForm() {
+    messageForm.classList.remove("display-none");
+    document.body.style.overflow = "hidden";
+}
+function hideMessageForm() {
+    messageForm.classList.add("display-none");
+    document.body.style.overflow = "";
+}
+
+
+//ВАЛИДАЦИЯ
+let submit = document.body.querySelector(".submit");
+let modalWindowOk = document.body.querySelector(".modal-window-ok");
+let modalWindowError = document.body.querySelector(".modal-window-error");
+
+function hideModalWindowOk() {
+    modalWindowOk.classList.add("display-none");
+}
+function hideModalWindowError() {
+    modalWindowError.classList.add("display-none");
+}
+
+function showModalWindowOk () {
+    modalWindowOk.classList.remove("display-none");
+    setTimeout(hideModalWindowOk, 5000);
+}
+function showModalWindowError () {
+    modalWindowError.classList.remove("display-none");
+    setTimeout(hideModalWindowOk, 5000);
+}
+
+
+
+
+submit.addEventListener("click", function() {
+
+    let isError = false;
+
+    let name = document.body.querySelector('#name');
+    let errorName = document.querySelector('.error-name');
+    let re=/^[a-zа-яё]+$/i;
+    if (!re.test(name.value) || name.value.length < 2) {
+        isError = true;
+        errorName.innerHTML = "Введите корректное имя";
+        name.classList.add("invalid");
+    } else {
+        errorName.innerHTML = "";
+        name.classList.remove("invalid");
+    }
+
+    let email = document.body.querySelector("#email");
+    let errorEmail = document.querySelector(".error-email");
+    if (!email.validity.valid || email.value.length < 2) {
+        isError = true;
+        errorEmail.innerHTML = "Введите корректный адрес электронной почты";
+        email.classList.add("invalid");
+    } else {
+        errorEmail.innerHTML = "";
+        email.classList.remove("invalid");
+    }
+
+    let textarea = document.body.querySelector("#textarea");
+    let errorTextarea = document.querySelector(".error-textarea");
+    if (textarea.value.length < 1) {
+        isError = true;
+        errorTextarea.innerHTML = "Введите текст сообщения";
+        textarea.classList.add("invalid");
+    } else {
+        errorTextarea.innerHTML = "";
+        textarea.classList.remove("invalid");
+    }
+
+    if(!isError){
+        showModalWindowOk();
+        name.value = "";
+        email.value = "";
+        textarea.value = "";
+        hideMessageForm();
+    }
+});
