@@ -1,4 +1,3 @@
-
 //ПЛАВНЫЕ ЯКОРНЫЕ ССЫЛКИ
 $(document).ready(function () {
     $("nav").on("click", "a", function (event) {
@@ -10,79 +9,92 @@ $(document).ready(function () {
 });
 
 //ВЫПАДАЮЩЕЕ МЕНЮ
-// let navBurgerIcon = document.body.querySelector(".nav-burger-icon");
-// let navBurger = document.body.querySelector(".nav-burger");
-// let navListSmall = document.body.querySelector(".nav-list-small");
+let navBurger = document.body.querySelector(".nav-burger");
+let modalWindowNav = document.body.querySelector(".modal-window-nav");
 
-// function Nav() {
-//     if (navListSmall.classList.contains("display-none")) {
-//         navListSmall.classList.remove("display-none");
-//     } else {
-//         navListSmall.classList.add("display-none");
-//     }
-// }
-// navBurgerIcon.addEventListener("click", Nav);
+function showModalWindowNav() {
+    modalWindowNav.classList.remove("display-none");
+}
+
+navBurger.addEventListener("click", showModalWindowNav);
+
+//скрывать выпадающее меню после перехода по ссылке
+let navItems = document.body.querySelectorAll(".nav-list-modal-window__item");
+for (let navItem of navItems) {
+    navItem.addEventListener("click", hideModalWindowNav);
+}
+
 
 
 //показать/скрыть message-form
+let modalWindowOk = document.body.querySelector(".modal-window-ok");
+let modalWindowError = document.body.querySelector(".modal-window-error");
+
+
 let messageForm = document.body.querySelector(".message-form");
 let submitSendMessage = document.body.querySelector(".button-send-message");
 let xIconMessageForm = document.body.querySelector(".message-form__x-icon");
 let xIconModalWindowOk = document.body.querySelector(".modal-window-ok__x-icon");
 let xIconModalWindowError = document.body.querySelector(".modal-window-error__x-icon");
+let xIconModalWindowNav = document.body.querySelector(".modal-window-nav__x-icon");
 let messageFormBackground = document.body.querySelector(".message-form__background");
 let modalWindowOkBackground = document.body.querySelector(".modal-window-ok__background");
 let modalWindowErrorBackground = document.body.querySelector(".modal-window-error__background");
+let modalWindowNavBackground = document.body.querySelector(".modal-window-nav__background");
 
 submitSendMessage.addEventListener("click", showMessageForm);
 xIconMessageForm.addEventListener("click", hideMessageForm);
 xIconModalWindowOk.addEventListener("click", hideModalWindowOk);
 xIconModalWindowError.addEventListener("click", hideModalWindowError);
+xIconModalWindowNav.addEventListener("click", hideModalWindowNav);
 messageFormBackground.addEventListener("click", hideMessageForm);
 modalWindowOkBackground.addEventListener("click", hideModalWindowOk);
 modalWindowErrorBackground.addEventListener("click", hideModalWindowError);
+modalWindowNavBackground.addEventListener("click", hideModalWindowNav);
 
 function showMessageForm() {
     messageForm.classList.remove("display-none");
     document.body.style.overflow = "hidden";
 }
+
+function showModalWindowOk() {
+    modalWindowOk.classList.remove("display-none");
+    setTimeout(hideModalWindowOk, 5000);
+}
+
+function showModalWindowError() {
+    modalWindowError.classList.remove("display-none");
+    setTimeout(hideModalWindowOk, 5000);
+}
+
 function hideMessageForm() {
     messageForm.classList.add("display-none");
     document.body.style.overflow = "";
 }
 
-
-//ВАЛИДАЦИЯ
-let submit = document.body.querySelector(".submit");
-let modalWindowOk = document.body.querySelector(".modal-window-ok");
-let modalWindowError = document.body.querySelector(".modal-window-error");
-
 function hideModalWindowOk() {
     modalWindowOk.classList.add("display-none");
 }
+
 function hideModalWindowError() {
     modalWindowError.classList.add("display-none");
 }
 
-function showModalWindowOk () {
-    modalWindowOk.classList.remove("display-none");
-    setTimeout(hideModalWindowOk, 5000);
-}
-function showModalWindowError () {
-    modalWindowError.classList.remove("display-none");
-    setTimeout(hideModalWindowOk, 5000);
+function hideModalWindowNav() {
+    modalWindowNav.classList.add("display-none");
 }
 
 
+//ВАЛИДАЦИЯ
+let submit = document.body.querySelector(".submit");
 
-
-submit.addEventListener("click", function() {
+submit.addEventListener("click", function () {
 
     let isError = false;
 
     let name = document.body.querySelector('#name');
     let errorName = document.querySelector('.error-name');
-    let re=/^[a-zа-яё]+$/i;
+    let re = /^[a-zа-яё]+$/i;
     if (!re.test(name.value) || name.value.length < 2) {
         isError = true;
         errorName.innerHTML = "Введите корректное имя";
@@ -114,7 +126,7 @@ submit.addEventListener("click", function() {
         textarea.classList.remove("invalid");
     }
 
-    if(!isError){
+    if (!isError) {
         showModalWindowOk();
         name.value = "";
         email.value = "";

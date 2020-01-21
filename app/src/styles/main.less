@@ -245,7 +245,7 @@ body {
     padding: 0;
 
     //list-style-type: square;
-    list-style-image: url("../../images/305245-394f1e.svg");
+    list-style-image: url("../../images/check-mark.svg");
 }
 
 .logo-list {
@@ -342,7 +342,17 @@ body {
         margin-bottom: 0;
     }
 }
+.button-download-resume {
+    width: 100%;
+    height: 60px;
 
+    @media (max-width: @breakpoint-1) {
+        width: calc((100% - 20px) / 2);
+    }
+    & button {
+        width: 100%;
+    }
+}
 
 //main
 .about-me {
@@ -387,6 +397,8 @@ body {
 }
 
 .nav {
+    .flex-row(flex-end, center);
+
     width: 80%;
     padding: 0 10%;
 }
@@ -396,6 +408,10 @@ body {
     width: 100%;
 
     text-transform: uppercase;
+
+    @media (max-width: @breakpoint-for-header) {
+        display: none;
+    }
 
     & a {
         color: @main-black-color;
@@ -407,6 +423,23 @@ body {
 
     &__item:not(:last-child) {
         margin-right: 20px;
+    }
+}
+.nav-burger {
+    display: none;
+
+    width: 50px;
+    height: 36px;
+
+    background: url("../../images/nav.svg");
+
+    cursor: pointer;
+
+    &:hover {
+        background: url("../../images/nav-hover.svg");
+    }
+    @media (max-width: @breakpoint-for-header) {
+        display: block;
     }
 }
 
@@ -527,3 +560,12 @@ body {
     }
 }
 
+
+//modal-window-nav
+.nav-list-modal-window {
+    .flex-col();
+    & h2 {
+        margin: 0;
+        padding: 10px 0;
+    }
+}

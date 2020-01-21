@@ -21,6 +21,7 @@
             <li class="nav-list__item"><a href="#experience">Опыт работы</a></li>
             <li class="nav-list__item"><a href="#contacts">Контакты</a></li>
         </ul>
+        <div class="nav-burger"></div>
     </nav>
 </header>
 
@@ -262,12 +263,17 @@
 
         <div class="buttons-block">
             <button class="button button-send-message">Отправить сообщение</button>
-            <button class="button button-download-resume">Скачать резюме</button>
+            <a href="https://drive.google.com/u/0/uc?id=1BNA_qvpPbGJKZcuh9l2FL8Hhkhg2szDD&export=download" class="button-download-resume">
+            <button class="button">
+                Скачать резюме
+            </button>
+            </a>
         </div>
     </div>
 
 
 </footer>
+
 
 <div class="modal-window message-form display-none">
     <div class="modal-window__background message-form__background"></div>
@@ -293,7 +299,6 @@
     <div class="modal-window__x-icon message-form__x-icon">×</div>
 </div>
 
-
 <div class="modal-window modal-window-answer modal-window-ok display-none">
     <div class="modal-window__background modal-window-ok__background"></div>
     <div class="modal-window__content modal-window-answer__content">
@@ -308,6 +313,23 @@
         <h3>К сожалению произошла ошибка, Ваше сообщение не отправлено! Попробуйте повторить попытку позже!</h3>
     </div>
     <div class="modal-window__x-icon modal-window-answer__x-icon modal-window-error__x-icon">×</div>
+</div>
+
+<div class="modal-window modal-window-nav display-none">
+    <div class="modal-window__background modal-window-nav__background"></div>
+    <div class="modal-window__content modal-window-nav__content">
+        <nav class="nav nav-modal-window">
+            <ul class="nav-list nav-list-modal-window">
+                <li class="nav-list__item nav-list-modal-window__item"><a href="#about-me"><h2>Обо мне</h2></a></li>
+                <li class="nav-list__item nav-list-modal-window__item"><a href="#skills"><h2>Навыки</h2></a></li>
+                <li class="nav-list__item nav-list-modal-window__item"><a href="#portfolio"><h2>Портфолио</h2></a></li>
+                <li class="nav-list__item nav-list-modal-window__item"><a href="#education"><h2>Образование</h2></a></li>
+                <li class="nav-list__item nav-list-modal-window__item"><a href="#experience"><h2>Опыт работы</h2></a></li>
+                <li class="nav-list__item nav-list-modal-window__item"><a href="#contacts"><h2>Контакты</h2></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="modal-window__x-icon modal-window-nav__x-icon">×</div>
 </div>
 
 <script src="/assets/bundle.js"></script>
