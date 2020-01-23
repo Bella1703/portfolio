@@ -159,22 +159,21 @@ body {
 .portfolio-list {
     display: grid;
     grid-template-columns: 1fr 20px 1fr 20px 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas: "portfolio-list__item-1 . portfolio-list__item-3 . portfolio-list__item-5"
-    "portfolio-list__item-2 . portfolio-list__item-4 . portfolio-list__item-6";
+    grid-template-rows: auto;
+    grid-template-areas: "portfolio-list__item-1 . portfolio-list__item-2 . portfolio-list__item-3";
 
     width: 100%;
 
     text-align: center;
 
     @media (max-width: @breakpoint-1) {
-        grid-template-columns: 215px auto;
+        grid-template-columns: 100%;
         grid-template-rows: auto 20px auto 20px auto;
-        grid-template-areas: "portfolio-list__item-1 portfolio-list__item-2"
-        ". ."
-        "portfolio-list__item-3 portfolio-list__item-4"
-        ". ."
-        "portfolio-list__item-5 portfolio-list__item-6";
+        grid-template-areas: "portfolio-list__item-1"
+        "."
+        "portfolio-list__item-2"
+        "."
+        "portfolio-list__item-3";
     }
 
     & h3 {
@@ -186,55 +185,33 @@ body {
 }
 .portfolio-list__item-2 {
     grid-area: portfolio-list__item-2;
-    background-color: @dark-background-color;
-    &:hover {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    }
-    &:hover h3 {
-        color: @main-blue-color;
-    }
 }
 .portfolio-list__item-3 {
     grid-area: portfolio-list__item-3;
-}
-.portfolio-list__item-4 {
-    grid-area: portfolio-list__item-4;
-    background-color: @dark-background-color;
-    &:hover {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    }
-    &:hover h3 {
-        color: @main-blue-color;
-    }
-}
-.portfolio-list__item-5 {
-    grid-area: portfolio-list__item-5;
-}
-.portfolio-list__item-6 {
-    grid-area: portfolio-list__item-6;
-    background-color: @dark-background-color;
-    &:hover {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    }
-    &:hover h3 {
-        color: @main-blue-color;
-    }
 }
 
 
 .portfolio-list-item {
     width: 100%;
-
+    background-color: @dark-background-color;
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    &:hover h3 {
+        color: @main-blue-color;
+    }
     @media (max-width: @breakpoint-1) {
         width: 100%;
-
-        &:not(:last-child) {
-            margin-bottom: 40px;
-        }
+        height: 225px;
+        .flex-row(flex-start, center);
     }
 
     &__img-wrap-wrap {
         width: 100%;
+        @media (max-width: @breakpoint-1) {
+            width: 213px;
+            height: 225px;
+        }
     }
 
     &__img-wrap {
@@ -242,6 +219,13 @@ body {
 
         width: 100%;
         padding-bottom: 80%;
+
+        @media (max-width: @breakpoint-1) {
+            width: 213px;
+            height: 100%;
+
+            padding-bottom: 0;
+        }
     }
 
     &__img {
@@ -249,21 +233,40 @@ body {
 
         width: 100%;
         height: 100%;
+
+        @media (max-width: @breakpoint-1) {
+            position: static;
+
+            width: 213px;
+            height: 100%;
+        }
     }
 
     &__img-hawk {
         background: url("../../images/hawk.jpg") no-repeat;
         background-size: cover;
+        @media (max-width: @breakpoint-1) {
+            background: url("../../images/hawk-long.jpg") no-repeat;
+            background-size: cover;
+        }
     }
 
     &__img-healthy-food {
         background: url("../../images/healthy-food.jpg") no-repeat;
         background-size: cover;
+        @media (max-width: @breakpoint-1) {
+            background: url("../../images/healthy-food-long.jpg") no-repeat;
+            background-size: cover;
+        }
     }
 
     &__img-portfolio {
         background: url("../../images/hawk.jpg") no-repeat;
         background-size: cover;
+        @media (max-width: @breakpoint-1) {
+            background: url("../../images/hawk-long.jpg") no-repeat;
+            background-size: cover;
+        }
     }
 
     &__title-block {
