@@ -11,6 +11,7 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
+    "autoprefixer": "^9.7.4",
     "jquery": "^3.3.1"
   },
   "devDependencies": {

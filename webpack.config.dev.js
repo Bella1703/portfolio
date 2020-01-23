@@ -15,19 +15,19 @@ module.exports = {
         publicPath: 'assets/'
     },
     resolve: {
-      extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
     watch: true,
     module: {
         rules: [
-            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
-            { test: /\.(woff|woff2)$/, loader:"url-loader?prefix=font/&limit=50000" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=application/octet-stream" },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=image/svg+xml" },
-            { test: /\.(png|jpg)$/, exclude: /node_modules/, loader: "url-loader" },
-            { test: /\.less$/, loaders: ['style-loader', 'css-loader', 'less-loader']},
-            { test: /\.js$/, exclude: /(node_modules)/, loader: 'babel-loader'}
+            {test: /\.css$/, loaders: ['style-loader', 'css-loader']},
+            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"},
+            {test: /\.(woff|woff2)$/, loader: "url-loader?prefix=font/&limit=50000"},
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=application/octet-stream"},
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=image/svg+xml"},
+            {test: /\.(png|jpg)$/, exclude: /node_modules/, loader: "url-loader"},
+            {test: /\.less$/, loaders: ['style-loader', 'css-loader', 'less-loader']},
+            {test: /\.js$/, exclude: /(node_modules)/, loader: 'babel-loader'}
         ]
     },
     plugins: [
@@ -35,12 +35,13 @@ module.exports = {
             $: "jquery",
             jquery: "jquery",
             "window.jQuery": "jquery",
-            jQuery:"jquery"
+            jQuery: "jquery"
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
     ],
+
     devServer: {
         stats: 'errors-only',
         contentBase: 'app',
