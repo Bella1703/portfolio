@@ -59,11 +59,13 @@ function showMessageForm() {
 
 function showModalWindowOk() {
     modalWindowOk.classList.remove("display-none");
+    document.body.style.overflow = "hidden";
     setTimeout(hideModalWindowOk, 5000);
 }
 
 function showModalWindowError() {
     modalWindowError.classList.remove("display-none");
+    document.body.style.overflow = "hidden";
     setTimeout(hideModalWindowOk, 5000);
 }
 
@@ -74,14 +76,17 @@ function hideMessageForm() {
 
 function hideModalWindowOk() {
     modalWindowOk.classList.add("display-none");
+    document.body.style.overflow = "";
 }
 
 function hideModalWindowError() {
     modalWindowError.classList.add("display-none");
+    document.body.style.overflow = "";
 }
 
 function hideModalWindowNav() {
     modalWindowNav.classList.add("display-none");
+    document.body.style.overflow = "";
 }
 
 
