@@ -217,6 +217,10 @@ body {
     margin-right: 40px;
 
     border-radius: 50%;
+
+    @media (max-width: @breakpoint-1) {
+        margin-right: 0;
+    }
 }
 
 .description-me {
@@ -316,6 +320,7 @@ body {
 
 
 .portfolio-list-item {
+    .flex-col(space-between, center);
     width: 100%;
     background-color: @dark-background-color;
     &:hover {
@@ -326,15 +331,15 @@ body {
     }
     @media (max-width: @breakpoint-1) {
         width: 100%;
-        height: 255px;
-        .flex-row(flex-start, center);
+        height: 285px;
     }
+
 
     &__img-wrap-wrap {
         width: 100%;
         @media (max-width: @breakpoint-1) {
             width: 213px;
-            height: 255px;
+            height: 285px;
         }
     }
 
@@ -397,12 +402,49 @@ body {
         width: calc (100% - 20px);
         height: calc (100% - 20px);
         padding: 10px;
+        @media (max-width: @breakpoint-1) {
+            height: calc(100% - 20px);
+            .flex-col(space-between, center);
+        }
     }
 
     &__text {
         color: @main-black-color;
     }
+
+    &__a {
+        color: @main-black-color;
+        font-weight: 700;
+        &:hover {
+            color: @main-blue-color;
+        }
+
+    }
+
+    &__top {
+        @media (max-width: @breakpoint-1) {
+            .flex-row(flex-start, flex-start);
+        }
+    }
+
+    &__bottom {
+        padding: 10px;
+        @media (max-width: @breakpoint-1) {
+            display: none;
+        }
+    }
+
+    &__bottom-mobile-version {
+        display: none;
+        padding: 0 10px;
+        @media (max-width: @breakpoint-1) {
+            display: block;
+        }
+    }
 }
+
+
+
 
 
 //year-list
