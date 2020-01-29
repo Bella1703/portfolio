@@ -58,8 +58,8 @@ function showMessageForm() {
 }
 
 function showModalWindowOk() {
-    modalWindowOk.classList.remove("display-none");
     document.body.style.overflow = "hidden";
+    modalWindowOk.classList.remove("display-none");
     setTimeout(hideModalWindowOk, 5000);
 }
 
@@ -71,7 +71,6 @@ function showModalWindowError() {
 
 function hideMessageForm() {
     messageForm.classList.add("display-none");
-    document.body.style.overflow = "";
 }
 
 function hideModalWindowOk() {
