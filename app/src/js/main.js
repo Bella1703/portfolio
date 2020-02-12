@@ -13,6 +13,7 @@ let navBurger = document.body.querySelector(".nav-burger");
 let modalWindowNav = document.body.querySelector(".modal-window-nav");
 
 function showModalWindowNav() {
+    document.body.style.overflow = "hidden";
     modalWindowNav.classList.remove("display-none");
 }
 
@@ -40,7 +41,6 @@ let xIconModalWindowNav = document.body.querySelector(".modal-window-nav__x-icon
 let messageFormBackground = document.body.querySelector(".message-form__background");
 let modalWindowOkBackground = document.body.querySelector(".modal-window-ok__background");
 let modalWindowErrorBackground = document.body.querySelector(".modal-window-error__background");
-let modalWindowNavBackground = document.body.querySelector(".modal-window-nav__background");
 
 submitSendMessage.addEventListener("click", showMessageForm);
 xIconMessageForm.addEventListener("click", hideMessageForm);
@@ -50,7 +50,6 @@ xIconModalWindowNav.addEventListener("click", hideModalWindowNav);
 messageFormBackground.addEventListener("click", hideMessageForm);
 modalWindowOkBackground.addEventListener("click", hideModalWindowOk);
 modalWindowErrorBackground.addEventListener("click", hideModalWindowError);
-modalWindowNavBackground.addEventListener("click", hideModalWindowNav);
 
 function showMessageForm() {
     messageForm.classList.remove("display-none");

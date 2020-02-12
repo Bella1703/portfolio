@@ -225,7 +225,6 @@ body {
 
 .description-me {
     width: 100%;
-
     @media (max-width: @breakpoint-1) {
         .flex-col(flex-start, center);
     }
@@ -539,6 +538,7 @@ body {
 .button {
     width: 100%;
     height: 60px;
+    min-height: 60px;
 
 
     font-weight: 700;
@@ -603,10 +603,21 @@ body {
         left: 10%;
 
         .flex-col();
-        width: 60%;
-        padding: 10%;
+        width: calc(80% - 160px);
+        height: calc(80% - 160px);
+        max-height: 240px;
+        min-height: 390px;
+        padding: 80px;
 
         background-color: #ffffff;
+
+        @media (max-width: @breakpoint-1) {
+            top: 0;
+            left: 0;
+            width: calc(100% - 160px);
+            height: calc(100% - 160px);
+            max-height: calc(100% - 160px);
+        }
     }
 
     &__x-icon {
@@ -623,6 +634,12 @@ body {
         color: @main-black-color;
 
         cursor: pointer;
+
+        @media (max-width: @breakpoint-1) {
+            top: 5px;
+            right: 0;
+            left: auto;
+        }
     }
 
     &__x-icon:hover {
@@ -635,6 +652,7 @@ body {
 
     .flex-col();
     width: 100%;
+    height: 100%;
 }
 
 .input {
@@ -655,6 +673,7 @@ body {
 }
 
 .textarea {
+    height: calc(100% - 214px);
     min-height: 100px;
 
     resize: none;
@@ -683,15 +702,27 @@ body {
 .modal-window-answer {
     &__content {
         top: 40%;
+        width: calc(80% - 160px);
+        min-width: 400px;
+        height: auto;
+        min-height: auto;
 
-        padding: 20px 10%;
+        padding: 20px 80px;
 
         text-align: center;
 
         color: @main-blue-color;
+
+        @media (max-width: @breakpoint-1) {
+            width: calc(100% - 160px);
+        }
     }
     &__x-icon {
         top: 40%;
+        left: calc(90% - 70px);
+        @media (max-width: @breakpoint-1) {
+            left: 90%;
+        }
     }
 }
 
@@ -702,6 +733,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    min-height: 100%;
     padding: 0;
 }
 
