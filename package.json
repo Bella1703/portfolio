@@ -31,5 +31,18 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.2"
-  }
+  },
+    "browserslist": [
+        "> 1%",
+        "ie >= 8",
+        "edge >= 15",
+        "ie_mob >= 10",
+        "ff >= 45",
+        "chrome >= 45",
+        "safari >= 7",
+        "opera >= 23",
+        "ios >= 7",
+        "android >= 4",
+        "bb >= 10"
+    ]
 }

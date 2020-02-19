@@ -29,15 +29,13 @@ button {
 p {
     margin: 0;
 }
+*, :after, :before {
+    box-sizing: content-box;
+}
 
 
 //ОБЩИЕ
 body {
-    width: 100%;
-    min-width: calc(@breakpoint-1 - 120px);
-    max-width: 1400px;
-    margin: auto;
-
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -71,30 +69,30 @@ body {
 }
 
 .block-light {
-    .flex-col();
-    width: 80%;
-    padding: 90px 10%;
+    width: 100%;
 
     background-color: @light-background-color;
-
-    @media (max-width: @breakpoint-1) {
-        width: calc(100% - 80px);
-        padding: 50px 40px;
-    }
 }
 
 .block-dark {
-    .flex-col();
-    width: 80%;
-    padding: 90px 10%;
+    width: 100%;
 
     background-color: @dark-background-color;
+}
+.block-content {
+    .flex-col();
+    width: 80%;
+    min-width: calc(@breakpoint-1 - 120px);
+    max-width: 1400px;
+    margin: auto;
+    padding: 90px 10%;
 
     @media (max-width: @breakpoint-1) {
         width: calc(100% - 80px);
         padding: 50px 40px;
     }
 }
+
 
 .separator {
     width: 200px;
@@ -125,8 +123,6 @@ body {
     .flex-row(flex-end, center);
     width: 100%;
     height: 70px;
-    //min-width: calc(@breakpoint-1 - 120px);
-    max-width: 1400px;
     margin: auto;
 
     background-color: @dark-background-color;
@@ -136,14 +132,22 @@ body {
         padding: 0 40px;
     }
 }
+.header-content {
+    .flex-col();
+    width: 80%;
+    min-width: calc(@breakpoint-1 - 120px);
+    max-width: 1400px;
+    margin: auto;
 
+    @media (max-width: @breakpoint-1) {
+        width: calc(100% - 80px);
+    }
+}
 .nav {
     .flex-row(flex-end, center);
 
-    width: 80%;
-    padding: 0 10%;
+    width: 100%;
     @media (max-width: @breakpoint-1) {
-        padding: 0 0;
         width: 100%;
         height: 100%;
     }

@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -26,7 +27,16 @@ module.exports = {
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=application/octet-stream"},
             {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=image/svg+xml"},
             {test: /\.(png|jpg)$/, exclude: /node_modules/, loader: "url-loader"},
-            {test: /\.less$/, loaders: ['style-loader', 'css-loader', 'less-loader']},
+            {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => autoprefixer({  grid: "autoplace" })
+                        }
+                    }, 'less-loader']
+            },
             {test: /\.js$/, exclude: /(node_modules)/, loader: 'babel-loader'}
         ]
     },
@@ -36,6 +46,10 @@ module.exports = {
             jquery: "jquery",
             "window.jQuery": "jquery",
             jQuery: "jquery"
+        }),
+        new ExtractTextPlugin({
+            filename: '[name].css',
+            allChunks: true,
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
