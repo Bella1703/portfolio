@@ -43,6 +43,11 @@ body {
     font-family: 'Philosopher', sans-serif;
     color: @main-black-color;
     text-align: left;
+
+    @media (max-width: @breakpoint-1) {
+        width: min-content;
+        font-size: 30px;
+    }
 }
 
 .h1,
@@ -53,10 +58,20 @@ body {
     font-size: 48px;
     color: @main-blue-color;
     text-transform: uppercase;
+
+    @media (max-width: @breakpoint-1) {
+        font-size: 72px;
+        line-height: 1.2;
+        text-align: center;
+    }
 }
 
 .h1 {
     margin-bottom: 0;
+    @media (max-width: @breakpoint-1) {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 }
 
 .h3 {
@@ -66,6 +81,10 @@ body {
     line-height: 1.2;
     color: @main-blue-color;
     text-transform: none;
+
+    @media (max-width: @breakpoint-1) {
+        font-size: 37px;
+    }
 }
 
 .block-light {
@@ -120,7 +139,7 @@ body {
     z-index: 2;
     top: 0;
 
-    .flex-row(flex-end, center);
+
     width: 100%;
     height: 70px;
     margin: auto;
@@ -133,10 +152,11 @@ body {
     }
 }
 .header-content {
-    .flex-col();
+    .flex-col(center, flex-end);
     width: 80%;
     min-width: calc(@breakpoint-1 - 120px);
     max-width: 1400px;
+    height: 70px;
     margin: auto;
 
     @media (max-width: @breakpoint-1) {
@@ -223,7 +243,18 @@ body {
     border-radius: 50%;
 
     @media (max-width: @breakpoint-1) {
-        margin-right: 0;
+        display: none;
+    }
+}
+
+.avatar-for-mobile {
+    display: none;
+    margin-right: 0;
+
+    border-radius: 50%;
+
+    @media (max-width: @breakpoint-1) {
+        display: block;
     }
 }
 
@@ -313,12 +344,18 @@ body {
     }
 }
 .portfolio-list__item-1 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
     grid-area: portfolio-list__item-1;
 }
 .portfolio-list__item-2 {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
     grid-area: portfolio-list__item-2;
 }
 .portfolio-list__item-3 {
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 1;
     grid-area: portfolio-list__item-3;
 }
 
@@ -335,7 +372,7 @@ body {
     }
     @media (max-width: @breakpoint-1) {
         width: 100%;
-        height: 285px;
+        height: 450px;
     }
 
 
@@ -343,7 +380,7 @@ body {
         width: 100%;
         @media (max-width: @breakpoint-1) {
             width: 213px;
-            height: 285px;
+            height: 450px;
         }
     }
 
@@ -394,10 +431,10 @@ body {
     }
 
     &__img-portfolio {
-        background: url("../../images/hawk.jpg") no-repeat;
+        background: url("../../images/portfolio.jpg") no-repeat;
         background-size: cover;
         @media (max-width: @breakpoint-1) {
-            background: url("../../images/hawk-long.jpg") no-repeat;
+            background: url("../../images/portfolio-long.jpg") no-repeat;
             background-size: cover;
         }
     }
@@ -407,12 +444,14 @@ body {
         height: calc (100% - 20px);
         padding: 10px;
         @media (max-width: @breakpoint-1) {
+            width: calc(100% - 213px);
             height: calc(100% - 20px);
             .flex-col(space-between, center);
         }
     }
 
     &__text {
+        width: 100%;
         color: @main-black-color;
     }
 
@@ -426,8 +465,10 @@ body {
     }
 
     &__top {
+        width: 100%;
         @media (max-width: @breakpoint-1) {
             .flex-row(flex-start, flex-start);
+            width: 100%;
         }
     }
 
@@ -556,7 +597,8 @@ body {
     }
 
     @media (max-width: @breakpoint-1) {
-        width: calc((100% - 20px) / 2);
+        width: calc((100% - 40px) / 2);
+        height: 100px;
     }
 }
 
@@ -569,7 +611,7 @@ body {
 }
 .button-download-resume {
     @media (max-width: @breakpoint-1) {
-        width: calc((100% - 20px) / 2);
+        width: calc((100% - 40px) / 2);
     }
 
     & a {

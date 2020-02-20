@@ -42,6 +42,14 @@ let messageFormBackground = document.body.querySelector(".message-form__backgrou
 let modalWindowOkBackground = document.body.querySelector(".modal-window-ok__background");
 let modalWindowErrorBackground = document.body.querySelector(".modal-window-error__background");
 
+
+let name = document.body.querySelector('#name');
+let errorName = document.querySelector('.error-name');
+let email = document.body.querySelector("#email");
+let errorEmail = document.querySelector(".error-email");
+let textarea = document.body.querySelector("#textarea");
+let errorTextarea = document.querySelector(".error-textarea");
+
 submitSendMessage.addEventListener("click", showMessageForm);
 xIconMessageForm.addEventListener("click", hideMessageForm);
 xIconModalWindowOk.addEventListener("click", hideModalWindowOk);
@@ -60,12 +68,20 @@ function showModalWindowOk() {
     document.body.style.overflow = "hidden";
     modalWindowOk.classList.remove("display-none");
     setTimeout(hideModalWindowOk, 5000);
+    name.value = "";
+    email.value = "";
+    textarea.value = "";
+    hideMessageForm();
 }
 
 function showModalWindowError() {
     modalWindowError.classList.remove("display-none");
     document.body.style.overflow = "hidden";
     setTimeout(hideModalWindowOk, 5000);
+    name.value = "";
+    email.value = "";
+    textarea.value = "";
+    hideMessageForm();
 }
 
 function hideMessageForm() {
@@ -95,9 +111,7 @@ submit.addEventListener("click", function () {
 
     let isError = false;
 
-    let name = document.body.querySelector('#name');
-    let errorName = document.querySelector('.error-name');
-    let re = /^[a-zа-яё]+$/i;
+    let re = /^[a-zа-яё]+ [a-zа-яё]+$/i && /^[a-zа-яё]/i;
     if (!re.test(name.value) || name.value.length < 2) {
         isError = true;
         errorName.innerHTML = "Введите корректное имя";
@@ -107,8 +121,6 @@ submit.addEventListener("click", function () {
         name.classList.remove("invalid");
     }
 
-    let email = document.body.querySelector("#email");
-    let errorEmail = document.querySelector(".error-email");
     if (!email.validity.valid || email.value.length < 2) {
         isError = true;
         errorEmail.innerHTML = "Введите корректный адрес электронной почты";
@@ -118,8 +130,6 @@ submit.addEventListener("click", function () {
         email.classList.remove("invalid");
     }
 
-    let textarea = document.body.querySelector("#textarea");
-    let errorTextarea = document.querySelector(".error-textarea");
     if (textarea.value.length < 1) {
         isError = true;
         errorTextarea.innerHTML = "Введите текст сообщения";
@@ -129,11 +139,29 @@ submit.addEventListener("click", function () {
         textarea.classList.remove("invalid");
     }
 
-    if (!isError) {
-        showModalWindowOk();
-        name.value = "";
-        email.value = "";
-        textarea.value = "";
-        hideMessageForm();
+    if (isError == false) {
+        $.ajax({
+            type: "POST",
+            url: "/send.php",
+            dataType : "json",                     // тип загружаемых данных
+            data: {
+                name: name.value,
+                email: email.value,
+                message: textarea.value
+            },
+            success: function(response){
+                if(0 == response.errors.length){			//Ошибок нет
+                    showModalWindowOk();
+                }else{
+                    showModalWindowError();
+                    console.log(response.errors);
+                }
+            },
+            error: function (error) {
+                showModalWindowError();
+            }
+        });
     }
 });
+
+
