@@ -1,167 +1,230 @@
-//ПЛАВНЫЕ ЯКОРНЫЕ ССЫЛКИ
-$(document).ready(function () {
-    $("nav").on("click", "a", function (event) {
-        event.preventDefault();
-        let id = $(this).attr('href'),
-            top = $(id).offset().top - 69;
-        $('body,html').animate({scrollTop: top}, 1500);
-    });
-});
+//ОТКРЫТЬ МЕНЮ
+let burgerIcon = document.body.querySelector(".burger-icon");
+let navContent = document.body.querySelector(".nav-content");
 
-//ВЫПАДАЮЩЕЕ МЕНЮ
-let navBurger = document.body.querySelector(".nav-burger");
-let modalWindowNav = document.body.querySelector(".modal-window-nav");
+burgerIcon.addEventListener("click", openNavContent);
 
-function showModalWindowNav() {
-    document.body.style.overflow = "hidden";
-    modalWindowNav.classList.remove("display-none");
+function openNavContent() {
+    burgerIcon.classList.add("display-none");
+    navContent.classList.remove("display-none");
 }
 
-navBurger.addEventListener("click", showModalWindowNav);
+//ЗАКРЫТЬ МЕНЮ
+let navHeaderArrowBigRight = document.body.querySelector(".nav-header__arrow-big-right");
+navHeaderArrowBigRight.addEventListener("click", closeNavContent);
 
-//скрывать выпадающее меню после перехода по ссылке
-let navItems = document.body.querySelectorAll(".nav-list-modal-window__item");
-for (let navItem of navItems) {
-    navItem.addEventListener("click", hideModalWindowNav);
+function closeNavContent() {
+    navContent.classList.add("display-none");
+    burgerIcon.classList.remove("display-none");
+    closeSearch();
+    closeNavListItem();
+    closeNavListSecondLevelItem();
 }
 
+//ОТКРЫТЬ ПОИСК
+let navHeaderSearch = document.body.querySelector(".nav-header__search");
+let navHeaderSearchFormWrapper = document.body.querySelector(".nav-header__search-form-wrapper");
+let lang = document.body.querySelector(".lang");
+let form = document.body.querySelector("form");
 
+let langItems = document.body.querySelectorAll(".lang__item");
 
-//показать/скрыть message-form
-let modalWindowOk = document.body.querySelector(".modal-window-ok");
-let modalWindowError = document.body.querySelector(".modal-window-error");
+navHeaderSearch.addEventListener("click", openSearch);
 
-
-let messageForm = document.body.querySelector(".message-form");
-let submitSendMessage = document.body.querySelector(".button-send-message");
-let xIconMessageForm = document.body.querySelector(".message-form__x-icon");
-let xIconModalWindowOk = document.body.querySelector(".modal-window-ok__x-icon");
-let xIconModalWindowError = document.body.querySelector(".modal-window-error__x-icon");
-let xIconModalWindowNav = document.body.querySelector(".modal-window-nav__x-icon");
-let messageFormBackground = document.body.querySelector(".message-form__background");
-let modalWindowOkBackground = document.body.querySelector(".modal-window-ok__background");
-let modalWindowErrorBackground = document.body.querySelector(".modal-window-error__background");
-
-
-let name = document.body.querySelector('#name');
-let errorName = document.querySelector('.error-name');
-let email = document.body.querySelector("#email");
-let errorEmail = document.querySelector(".error-email");
-let textarea = document.body.querySelector("#textarea");
-let errorTextarea = document.querySelector(".error-textarea");
-
-submitSendMessage.addEventListener("click", showMessageForm);
-xIconMessageForm.addEventListener("click", hideMessageForm);
-xIconModalWindowOk.addEventListener("click", hideModalWindowOk);
-xIconModalWindowError.addEventListener("click", hideModalWindowError);
-xIconModalWindowNav.addEventListener("click", hideModalWindowNav);
-messageFormBackground.addEventListener("click", hideMessageForm);
-modalWindowOkBackground.addEventListener("click", hideModalWindowOk);
-modalWindowErrorBackground.addEventListener("click", hideModalWindowError);
-
-function showMessageForm() {
-    messageForm.classList.remove("display-none");
-    document.body.style.overflow = "hidden";
+function openSearch() {
+    lang.classList.add("display-none");
+    navHeaderSearchFormWrapper.classList.remove("display-none");
+    navHeaderSearch.classList.add("display-none");
+    form.style.width = "100%";
 }
 
-function showModalWindowOk() {
-    document.body.style.overflow = "hidden";
-    modalWindowOk.classList.remove("display-none");
-    setTimeout(hideModalWindowOk, 5000);
-    name.value = "";
-    email.value = "";
-    textarea.value = "";
-    hideMessageForm();
-}
+//ЗАКРЫТЬ ПОИСК
+let navHeaderCross = document.body.querySelector(".nav-header__cross");
+let navHeaderSearchForm = document.body.querySelector(".nav-header__search-form");
 
-function showModalWindowError() {
-    modalWindowError.classList.remove("display-none");
-    document.body.style.overflow = "hidden";
-    setTimeout(hideModalWindowOk, 5000);
-    name.value = "";
-    email.value = "";
-    textarea.value = "";
-    hideMessageForm();
-}
+navHeaderCross.addEventListener("click", closeSearch);
 
-function hideMessageForm() {
-    messageForm.classList.add("display-none");
-}
+function closeSearch() {
+    lang.classList.remove("display-none");
 
-function hideModalWindowOk() {
-    modalWindowOk.classList.add("display-none");
-    document.body.style.overflow = "";
-}
-
-function hideModalWindowError() {
-    modalWindowError.classList.add("display-none");
-    document.body.style.overflow = "";
-}
-
-function hideModalWindowNav() {
-    modalWindowNav.classList.add("display-none");
-    document.body.style.overflow = "";
-}
-
-
-//ВАЛИДАЦИЯ
-let submit = document.body.querySelector(".submit");
-
-submit.addEventListener("click", function () {
-
-    let isError = false;
-
-    let re = /^[a-zа-яё]+ [a-zа-яё]+$/i && /^[a-zа-яё]/i;
-    if (!re.test(name.value) || name.value.length < 2) {
-        isError = true;
-        errorName.innerHTML = "Введите корректное имя";
-        name.classList.add("invalid");
-    } else {
-        errorName.innerHTML = "";
-        name.classList.remove("invalid");
+    if (!langItems[0].classList.contains("display-none") && !langItems[1].classList.contains("display-none") && !langItems[2].classList.contains("display-none")) {
+        for (let langItem of langItems) {
+            langItem.classList.add("display-none");
+        }
+        langItems[0].classList.remove("display-none");
     }
 
-    if (!email.validity.valid || email.value.length < 2) {
-        isError = true;
-        errorEmail.innerHTML = "Введите корректный адрес электронной почты";
-        email.classList.add("invalid");
-    } else {
-        errorEmail.innerHTML = "";
-        email.classList.remove("invalid");
-    }
+    navHeaderSearchFormWrapper.classList.add("display-none");
+    navHeaderSearch.classList.remove("display-none");
+    navHeaderSearchForm.value = "";
+    form.style.width = "";
+}
 
-    if (textarea.value.length < 1) {
-        isError = true;
-        errorTextarea.innerHTML = "Введите текст сообщения";
-        textarea.classList.add("invalid");
-    } else {
-        errorTextarea.innerHTML = "";
-        textarea.classList.remove("invalid");
-    }
 
-    if (isError == false) {
-        $.ajax({
-            type: "POST",
-            url: "/send.php",
-            dataType : "json",                     // тип загружаемых данных
-            data: {
-                name: name.value,
-                email: email.value,
-                message: textarea.value
-            },
-            success: function(response){
-                if(0 == response.errors.length){			//Ошибок нет
-                    showModalWindowOk();
-                }else{
-                    showModalWindowError();
-                    console.log(response.errors);
-                }
-            },
-            error: function (error) {
-                showModalWindowError();
+//ВЫБРАТЬ ЯЗЫК
+let langArrows = document.body.querySelectorAll(".lang__arrow");
+
+lang.addEventListener("click", chooseLang);
+
+function chooseLang(event) {
+    if (langItems[0].classList.contains("display-none") || langItems[1].classList.contains("display-none") || langItems[2].classList.contains("display-none") ) {
+        openLangMenu();
+    }
+    else {
+        let target = event.target;
+        if (target.classList.contains("lang__item")) {
+            for (let langItem of langItems) {
+                langItem.classList.add("display-none");
             }
-        });
+            target.classList.remove("display-none");
+            for (let langArrow of langArrows) {
+                langArrow.classList.add("hidden");
+            }
+            target.lastElementChild.classList.remove("arrow-up");
+            target.lastElementChild.classList.add("arrow-down");
+            target.lastElementChild.classList.remove("hidden");
+        }
     }
-});
+}
+
+function openLangMenu() {
+    for (let langItem of langItems) {
+        langItem.classList.remove("display-none");
+    }
+    for (let langArrow of langArrows) {
+        langArrow.classList.add("hidden");
+    }
+    langArrows[0].classList.remove("hidden");
+    langArrows[0].classList.remove("arrow-down");
+    langArrows[0].classList.add("arrow-up");
+}
 
 
+//АККОРДЕОН МЕНЮ ПЕРВЫЙ УРОВЕНЬ
+let navList = document.body.querySelector(".nav-list");
+let navListItems = document.body.querySelectorAll(".nav-list__item");
+let target;
+
+navList.addEventListener("click", openOrCloseNavListItem);
+
+function openOrCloseNavListItem(event) {
+    closeSearch();
+
+    if (event.target.classList.contains("nav-list-second-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.classList.contains("nav-list-second-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.parentElement.classList.contains("nav-list-second-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.parentElement.parentElement.classList.contains("nav-list-second-level")) {
+        return false;
+    }
+
+    else if (event.target.classList.contains("nav-list__item")) {
+        target = event.target;
+    }
+    else if (event.target.parentElement.classList.contains("nav-list__item")) {
+        target = event.target.parentElement;
+    }
+    else if (event.target.parentElement.parentElement.classList.contains("nav-list__item")) {
+        target = event.target.parentElement.parentElement;
+    }
+
+    if (target.children.length === 1) {
+        return false;
+    }
+    else if (target.lastElementChild.classList.contains("display-none")) {
+        openNavListItem();
+    }
+    else {
+        closeNavListItem();
+    }
+
+}
+
+
+function openNavListItem(event) {
+    for (let navListItem of navListItems) {
+        navListItem.classList.add("display-none");
+    }
+    target.classList.remove("display-none");
+    target.firstElementChild.lastElementChild.classList.add("display-none");
+    target.firstElementChild.firstElementChild.classList.remove("display-none");
+    target.lastElementChild.classList.remove("display-none");
+}
+
+function closeNavListItem(event) {
+    for (let navListItem of navListItems) {
+        navListItem.classList.remove("display-none");
+    }
+
+    target.firstElementChild.lastElementChild.classList.remove("display-none");
+    target.firstElementChild.firstElementChild.classList.add("display-none");
+    target.lastElementChild.classList.add("display-none");
+    closeNavListSecondLevelItem();
+}
+
+//АККОРДЕОН МЕНЮ ВТОРОЙ УРОВЕНЬ
+let navListSecondLevel = document.body.querySelector(".nav-list-second-level");
+let targetSecondLevel;
+
+navListSecondLevel.addEventListener("click", openOrCloseNavListSecondLevelItem);
+
+function openOrCloseNavListSecondLevelItem(event) {
+
+    if (event.target.classList.contains("nav-list-third-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.classList.contains("nav-list-third-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.parentElement.classList.contains("nav-list-third-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.parentElement.parentElement.classList.contains("nav-list-third-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.parentElement.parentElement.parentElement.classList.contains("nav-list-third-level")) {
+        return false;
+    }
+    else if (event.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.contains("nav-list-third-level")) {
+        return false;
+    }
+
+    else if (event.target.classList.contains("nav-list-second-level__item")) {
+        targetSecondLevel = event.target;
+    }
+    else if (event.target.parentElement.classList.contains("nav-list-second-level__item")) {
+        targetSecondLevel = event.target.parentElement;
+    }
+    else if (event.target.parentElement.parentElement.classList.contains("nav-list-second-level__item")) {
+        targetSecondLevel = event.target.parentElement.parentElement;
+    }
+
+    if (targetSecondLevel.children.length === 1) {
+        return false;
+    }
+    else if (targetSecondLevel.lastElementChild.classList.contains("display-none")) {
+        openNavListSecondLevelItem();
+    }
+    else {
+        closeNavListSecondLevelItem();
+    }
+
+}
+
+
+function openNavListSecondLevelItem(event) {
+    targetSecondLevel.firstElementChild.lastElementChild.classList.add("display-none");
+    targetSecondLevel.firstElementChild.children[1].classList.remove("display-none");
+    targetSecondLevel.lastElementChild.classList.remove("display-none");
+}
+
+function closeNavListSecondLevelItem(event) {
+    targetSecondLevel.firstElementChild.lastElementChild.classList.remove("display-none");
+    targetSecondLevel.firstElementChild.children[1].classList.add("display-none");
+    targetSecondLevel.lastElementChild.classList.add("display-none");
+}
