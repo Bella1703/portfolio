@@ -149,6 +149,7 @@ body {
     @media (max-width: @breakpoint-1) {
         width: calc(100% - 80px);
         padding: 0 40px;
+        height: 90px;
     }
 }
 .header-content {
@@ -161,6 +162,7 @@ body {
 
     @media (max-width: @breakpoint-1) {
         width: calc(100% - 80px);
+        height: 90px;
     }
 }
 .nav {
@@ -199,7 +201,7 @@ body {
 .nav-burger {
     display: none;
 
-    width: 50px;
+    width: 60px;
     height: 36px;
 
     background: url("../../images/nav.svg");
@@ -259,11 +261,16 @@ body {
 }
 
 .description-me {
-    width: 100%;
+    width: calc(100% - 300px);
     @media (max-width: @breakpoint-1) {
         .flex-col(flex-start, center);
+        width: 100%;
     }
 
+    & h1,
+    & h3 {
+        width: 100%;
+    }
 }
 
 //skills
@@ -597,7 +604,7 @@ body {
     }
 
     @media (max-width: @breakpoint-1) {
-        width: calc((100% - 40px) / 2);
+        width: calc((100% - 80px) / 2);
         height: 100px;
     }
 }
@@ -611,7 +618,7 @@ body {
 }
 .button-download-resume {
     @media (max-width: @breakpoint-1) {
-        width: calc((100% - 40px) / 2);
+        width: calc((100% - 80px) / 2);
     }
 
     & a {
@@ -685,6 +692,8 @@ body {
             top: 5px;
             right: 0;
             left: auto;
+            margin-right: 30px;
+            font-size: 80px;
         }
     }
 
@@ -715,6 +724,10 @@ body {
 
     &:focus {
         border: 1px solid @main-blue-color;
+    }
+
+    @media (max-width: @breakpoint-1) {
+        height: 50px;
     }
 }
 
