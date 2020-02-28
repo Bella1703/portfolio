@@ -86,6 +86,7 @@ function showModalWindowError() {
 
 function hideMessageForm() {
     messageForm.classList.add("display-none");
+    document.body.style.overflow = "";
 }
 
 function hideModalWindowOk() {
