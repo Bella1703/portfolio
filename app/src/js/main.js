@@ -77,7 +77,7 @@ function showModalWindowOk() {
 function showModalWindowError() {
     modalWindowError.classList.remove("display-none");
     document.body.style.overflow = "hidden";
-    setTimeout(hideModalWindowOk, 5000);
+    setTimeout(hideModalWindowError, 5000);
     name.value = "";
     email.value = "";
     textarea.value = "";
@@ -86,6 +86,7 @@ function showModalWindowError() {
 
 function hideMessageForm() {
     messageForm.classList.add("display-none");
+    document.body.style.overflow = "";
 }
 
 function hideModalWindowOk() {
