@@ -195,6 +195,7 @@ body {
 
     & a:hover {
         color: @main-blue-color;
+        text-decoration: underline;
     }
 
     &__item:not(:last-child) {
@@ -219,7 +220,9 @@ body {
     }
 }
 
-
+.nowrap {
+    white-space: nowrap;
+}
 
 //about-me
 .about-me {
@@ -369,12 +372,12 @@ body {
 .portfolio-list-item {
     .flex-col(space-between, center);
     width: 100%;
-    background-color: @dark-background-color;
-    &:hover {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    }
+    background-color: @light-background-color;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
     &:hover h3 {
         color: @main-blue-color;
+        text-decoration: underline;
     }
     @media (max-width: @breakpoint-1) {
         width: 100%;
@@ -459,6 +462,10 @@ body {
     &__text {
         width: 100%;
         color: @main-black-color;
+        & p {
+            text-align: left;
+            padding: 0 10px;
+        }
     }
 
     &__a {
@@ -466,6 +473,7 @@ body {
         font-weight: 700;
         &:hover {
             color: @main-blue-color;
+            text-decoration: underline;
         }
 
     }
@@ -548,7 +556,11 @@ body {
     &__h3 {
         color: @main-black-color;
     }
+    &__h3 a:hover {
+        text-decoration: underline;
+    }
 }
+
 
 .contacts-list {
     .flex-col(flex-start, flex-start);
@@ -557,7 +569,7 @@ body {
     margin-right: 40px;
 
     @media (max-width: @breakpoint-1) {
-        align-items: center;
+        align-items: start;
         width: 100%;
         margin-bottom: 20px;
     }
@@ -594,13 +606,14 @@ body {
 
 
     font-weight: 700;
-    color: @white-color;
+    color: @main-black-color;
     text-transform: uppercase;
 
-    background-color: @main-blue-color;
+    background-color: @light-background-color;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
     &:hover {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        color: @main-blue-color;
     }
 
     @media (max-width: @breakpoint-1) {
@@ -626,7 +639,10 @@ body {
         width: 100%;
         height: 60px;
 
-        color: @white-color;
+        color: @main-black-color;
+        &:hover {
+            color: @main-blue-color;
+        }
     }
 }
 
