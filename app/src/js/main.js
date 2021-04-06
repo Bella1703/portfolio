@@ -15,9 +15,19 @@ let modalWindowNav = document.body.querySelector(".modal-window-nav");
 function showModalWindowNav() {
     document.body.style.overflow = "hidden";
     modalWindowNav.classList.remove("display-none");
+    navBurger.style.background = "url(\"../../images/nav-close.svg\") center center no-repeat";
 }
 
-navBurger.addEventListener("click", showModalWindowNav);
+navBurger.addEventListener("click", changeModalWindowNav);
+
+function changeModalWindowNav() {
+    if(modalWindowNav.classList.contains("display-none")) {
+        showModalWindowNav();
+    }
+    else {
+        hideModalWindowNav();
+    }
+}
 
 //скрывать выпадающее меню после перехода по ссылке
 let navItems = document.body.querySelectorAll(".nav-list-modal-window__item");
@@ -102,6 +112,7 @@ function hideModalWindowError() {
 function hideModalWindowNav() {
     modalWindowNav.classList.add("display-none");
     document.body.style.overflow = "";
+    navBurger.style.background = "url(\"../../images/nav.svg\") center center no-repeat";
 }
 
 

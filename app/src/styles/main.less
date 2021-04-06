@@ -56,6 +56,7 @@ body {
 
     font-weight: 700;
     font-size: 48px;
+    line-height: 55px;
     color: @main-blue-color;
     text-transform: uppercase;
 
@@ -164,7 +165,7 @@ body {
     margin: auto;
 
     @media (max-width: @breakpoint-1) {
-        width: calc(100% - 80px);
+        width: 100%;
         height: 90px;
     }
 }
@@ -177,7 +178,6 @@ body {
         height: 100%;
     }
 }
-
 .nav-list {
     .flex-row(flex-end, center);
     width: 100%;
@@ -195,7 +195,6 @@ body {
 
     & a:hover {
         color: @main-blue-color;
-        text-decoration: underline;
     }
 
     &__item:not(:last-child) {
@@ -208,13 +207,10 @@ body {
     width: 60px;
     height: 36px;
 
-    background: url("../../images/nav.svg");
+    background: url("../../images/nav.svg") center center no-repeat;
 
     cursor: pointer;
 
-    &:hover {
-        background: url("../../images/nav-hover.svg");
-    }
     @media (max-width: @breakpoint-for-header) {
         display: block;
     }
@@ -248,18 +244,8 @@ body {
     border-radius: 50%;
 
     @media (max-width: @breakpoint-1) {
-        display: none;
-    }
-}
-
-.avatar-for-mobile {
-    display: none;
-    margin-right: 0;
-
-    border-radius: 50%;
-
-    @media (max-width: @breakpoint-1) {
-        display: block;
+        width: 70%;
+        margin-right: 0px;
     }
 }
 
@@ -274,10 +260,13 @@ body {
     & h3 {
         width: 100%;
     }
+    & .separator {
+        margin-bottom: 20px;
+    }
 }
 
 //skills
-.skills {
+.skills, .experience {
     &__h3 {
         width: 100%;
         margin: 0;
@@ -289,14 +278,13 @@ body {
         .flex-col(flex-start, flex-start);
         width: 100%;
     }
+
 }
 
 .skills-list {
-    position: relative;
     width: 100%;
-    left: 28px;
-
     padding: 0;
+    list-style-position: inside;
 
     & li {
         list-style-image: url("../../images/check-mark.svg");
@@ -350,6 +338,7 @@ body {
 
     & h3 {
         color: @main-black-color;
+        text-decoration: underline;
     }
 }
 .portfolio-list__item-1 {
@@ -373,23 +362,22 @@ body {
     .flex-col(space-between, center);
     width: 100%;
     background-color: @light-background-color;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border: 1px solid @border-color;
 
     &:hover h3 {
         color: @main-blue-color;
-        text-decoration: underline;
+
     }
     @media (max-width: @breakpoint-1) {
         width: 100%;
-        height: 450px;
+        height: 500px;
     }
-
 
     &__img-wrap-wrap {
         width: 100%;
         @media (max-width: @breakpoint-1) {
             width: 213px;
-            height: 450px;
+            height: 500px;
         }
     }
 
@@ -449,9 +437,12 @@ body {
     }
 
     &__title-block {
+        .flex-col(flex-start, center);
+
         width: calc (100% - 20px);
         height: calc (100% - 20px);
-        padding: 10px;
+        padding: 30px 20px 10px;
+        margin: 0 0 15px 0;
         @media (max-width: @breakpoint-1) {
             width: calc(100% - 213px);
             height: calc(100% - 20px);
@@ -464,13 +455,20 @@ body {
         color: @main-black-color;
         & p {
             text-align: left;
-            padding: 0 10px;
+            padding: 0 0px;
+        }
+    }
+
+    .h3 {
+        @media (max-width: @breakpoint-1) {
+            text-align: left;
         }
     }
 
     &__a {
         color: @main-black-color;
         font-weight: 700;
+        text-decoration: underline;
         &:hover {
             color: @main-blue-color;
             text-decoration: underline;
@@ -480,6 +478,7 @@ body {
 
     &__top {
         width: 100%;
+        height: 100%;
         @media (max-width: @breakpoint-1) {
             .flex-row(flex-start, flex-start);
             width: 100%;
@@ -487,15 +486,16 @@ body {
     }
 
     &__bottom {
-        padding: 10px;
+        padding: 0 10px 20px;
         @media (max-width: @breakpoint-1) {
             display: none;
         }
     }
 
     &__bottom-mobile-version {
+        align-self: end;
         display: none;
-        padding: 0 10px;
+        padding: 0 0px 20px;
         @media (max-width: @breakpoint-1) {
             display: block;
         }
@@ -568,19 +568,26 @@ body {
     min-width: 400px;
     margin-right: 40px;
 
+
     @media (max-width: @breakpoint-1) {
         align-items: start;
         width: 100%;
         margin-bottom: 20px;
     }
 
+    .h3 {
+        font-weight: 400;
+
+    }
     &__item {
         text-transform: uppercase;
+
     }
 
     & span,
     & a {
         color: @main-black-color;
+        text-decoration: underline;
     }
 
     & a:hover {
@@ -599,18 +606,18 @@ body {
     }
 }
 
+
 .button {
     width: 100%;
     height: 60px;
     min-height: 60px;
-
 
     font-weight: 700;
     color: @main-black-color;
     text-transform: uppercase;
 
     background-color: @light-background-color;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border: 1px solid @border-color;
 
     &:hover {
         color: @main-blue-color;
@@ -622,8 +629,11 @@ body {
     }
 }
 
+
+
+
 .button-send-message {
-    margin-bottom: 20px;
+    margin-bottom: 20px ;
 
     @media (max-width: @breakpoint-1) {
         margin-bottom: 0;
@@ -727,7 +737,7 @@ body {
 }
 
 .input {
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     height: 25px;
     margin-bottom: 20px;
     padding: 10px 20px;
@@ -754,9 +764,10 @@ body {
     resize: none;
 }
 .submit {
-    border: none;
+    width: calc(100% - 30px);
+    border: 1px solid @main-black-color;
     @media (max-width: @breakpoint-1) {
-        width: 100%;
+        width: calc(100% - 30px);
     }
 }
 
@@ -804,12 +815,14 @@ body {
 
 //modal-window-nav
 .modal-window-nav__content {
+    position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     min-height: 100%;
     padding: 0;
+    background-color: @light-background-color;
 }
 
 .nav-modal-window {
@@ -819,28 +832,23 @@ body {
 }
 
 .nav-list-modal-window {
-    .flex-col(space-between, center);
-
-    height: 80%;
-
-    padding-top: 20px;
-    padding-bottom: 20px;
+    .flex-col(flex-start, center);
+    height: 100%;
+    padding: 20px 40px;
+    position: relative;
+    top: 90px;
     & h2 {
         margin: 0;
-        padding: 10px 0;
-
-        font-size: 2em;
+        padding: 20px 0;
+        font-weight: normal;
+        font-size: 1.2em;
+    }
+    &:first-child {
+        padding: 80px 0 20px;
     }
 
     &__item:not(:last-child) {
         margin-right: 0;
     }
 }
-.modal-window-nav__x-icon {
-    top: calc(5% - 20px);
 
-    width: 90px;
-    height: 90px;
-
-    font-size: 90px;
-}
